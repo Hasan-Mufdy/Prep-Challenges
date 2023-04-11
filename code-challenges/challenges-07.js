@@ -98,14 +98,21 @@ const cvFormatter = (arr) => {
         applicant = arr[i];
         newApplicant = {};
         if(arr[i].yearsOfExperience > 1 ){
-            newApplicant.fullName = applicant.firstName + applicant.lastName;
+            if(applicant.lastName != null){
+            newApplicant.fullName = applicant.firstName +" "+ applicant.lastName;
             newApplicant.tech = applicant.tech;
 
             newArr.push(newApplicant);
+            }
+            else{
+                newApplicant.fullName = applicant.firstName;
+                newApplicant.tech = applicant.tech;
 
+                newArr.push(newApplicant);
+            } 
         }
     }
-
+return newArr;
 
 };
 // -------------------------------------------------------------------------------------------------------
